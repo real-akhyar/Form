@@ -72,13 +72,31 @@
             margin: 50px 0;
         }
 
+        /* Text Section with Background Image */
         .text-section {
+            position: relative;
             flex: 1;
             min-width: 300px;
             padding: 30px;
-            background-color: var(--light-gray);
+            background-color: rgba(248, 248, 248, 0.95);
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .text-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url('./ikk.jpg') center/cover no-repeat;
+            opacity: 0.15;
+            filter: blur(2px);
+            z-index: 0;
+        }
+
+        .text-section * {
+            position: relative;
+            z-index: 1;
         }
 
         .text-section h2 {
@@ -110,7 +128,6 @@
         }
 
         .urdu-text {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             direction: rtl;
             text-align: right;
             font-size: 1.1rem;
@@ -172,7 +189,6 @@
             margin: 0 auto 40px;
         }
 
-        /* Fixed Button Color for Better Visibility */
         .btn {
             display: inline-block;
             background-color: var(--white);
@@ -208,20 +224,16 @@
             opacity: 0.9;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .logo-text {
                 font-size: 1.8rem;
             }
-            
             .tagline {
                 font-size: 1rem;
             }
-            
             .red-section h2 {
                 font-size: 2rem;
             }
-            
             .btn {
                 padding: 15px 40px;
                 font-size: 1.1rem;
@@ -242,7 +254,6 @@
     <div class="container">
         <div class="main-content">
             <div class="text-section">
-                <h2> ہمارا مشن</h2>
                 <div class="urdu-text">
                     <p><span class="highlight">السلام علیکم!</span> اگر آپ عمران خان کی رہائی اور حق کی جدوجہد میں اپنا کردار ادا کرنا چاہتے ہیں تو آئیں، ہمارے آن لائن پورٹل کے ذریعے اس تحریک کا حصہ بنیں۔</p>
                     <p>یہ صرف ایک ریجسٹریشن نہیں، بلکہ ظالم کے خلاف آواز بلند کرنے کا عہد ہے۔ ہر باشعور نوجوان، ہر درد دل رکھنے والا پاکستانی اب خاموش نہ رہے۔</p>
