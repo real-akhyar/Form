@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Release Imran Khan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --pti-red: #f70000;
+            --pti-green: #007c00;
+            --white: #FFFFFF;
+            --light-gray: #F8F8F8;
+            --dark-gray: #333333;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--dark-gray);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--pti-red);
+            color: var(--white);
+            padding: 25px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .logo-text {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            font-weight: 500;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin: 50px 0;
+        }
+
+        .text-section {
+            flex: 1;
+            min-width: 300px;
+            padding: 30px;
+            background-color: var(--light-gray);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .text-section h2 {
+            color: var(--pti-green);
+            font-size: 2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .text-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background-color: var(--pti-red);
+        }
+
+        .text-section p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .highlight {
+            color: var(--pti-red);
+            font-weight: 700;
+        }
+
+        .urdu-text {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            direction: rtl;
+            text-align: right;
+            font-size: 1.1rem;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px dashed var(--pti-green);
+        }
+
+        .image-section {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .image-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .image-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .image-caption {
+            padding: 15px;
+            background-color: var(--pti-green);
+            color: var(--white);
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .red-section {
+            background-color: var(--pti-red);
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .red-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .red-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--pti-green);
+            color: var(--white);
+            padding: 18px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            border: 3px solid var(--white);
+        }
+
+        .btn:hover {
+            background-color: var(--white);
+            color: var(--pti-green);
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: var(--pti-green);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .logo-text {
+                font-size: 1.8rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+            }
+            
+            .red-section h2 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 15px 40px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-text">Release Imran Khan Movement</div>
+            </div>
+            <p class="tagline">Join us in the fight for justice, transparency, and a prosperous Pakistan</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <div class="text-section">
+                <h2>Our Mission | ہمارا مشن</h2>
+                <!-- New Content -->
+                <p>Assalam-o-Alaikum! If you want to play your role in Imran Khan's release and the struggle for truth, then come, become part of this movement through our online portal.</p>
+                <p>This is not just a registration, but a pledge to raise your voice against the oppressor. Every conscious youth, every Pakistani with a compassionate heart should not remain silent now.</p>
+                <p>Add your name to this caravan that stands for truth, justice, and Pakistan's true freedom. The release of Mentor Imran Khan is not just about one individual, but the survival of an ideology.</p>
+                <p>If not today, then when? If not you, then who? Register, join, and become part of history.</p>
+                
+                <div class="urdu-text">
+                    <!-- New Urdu Content -->
+                    <p><span class="highlight">السلام علیکم!</span> اگر آپ عمران خان کی رہائی اور حق کی جدوجہد میں اپنا کردار ادا کرنا چاہتے ہیں تو آئیں، ہمارے آن لائن پورٹل کے ذریعے اس تحریک کا حصہ بنیں۔</p>
+                    <p>یہ صرف ایک ریجسٹریشن نہیں، بلکہ ظالم کے خلاف آواز بلند کرنے کا عہد ہے۔ ہر باشعور نوجوان، ہر درد دل رکھنے والا پاکستانی اب خاموش نہ رہے۔</p>
+                    <p>اپنا نام اس قافلے میں شامل کریں جو سچ، انصاف اور پاکستان کی حقیقی آزادی کے لیے کھڑا ہے۔ مرشد عمران خان کی رہائی صرف ایک فرد کی نہیں، ایک نظریے کی بقا ہے۔</p>
+                    <p>آج نہیں تو کب؟ آپ نہیں تو کون؟ رجسٹر ہوں، شامل ہوں، اور تاریخ کا حصہ بنیں۔</p>
+                </div>
+            </div>
+            
+            <div class="image-section">
+                <div class="image-card">
+                    <img src="ikkk.jpg" alt="Imran Khan">
+                    <div class="image-caption">Imran Khan - The Visionary Leader</div>
+                </div>
+                <div class="image-card">
+                    <img src="ikk.jpg" alt="Leadership">
+                    <div class="image-caption">Standing against whole system</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="red-section">
+        <div class="container">
+            <h2>Join the Us</h2>
+            <p>Be part of the change. Stand with Imran Khan and millions of Pakistanis in our mission to release Imran Khan.</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfjBYaD_Bgj6YpqK4aM_qPE2j85XD8aTYRaOQdduK2Tz5Yl1w/viewform?usp=pp_url" class="btn" target="_blank">JOIN NOW</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-text">Release Imran Khan Movement</div>
+            </div>
+            <p>Together for a Imran Khan</p>
+            <div class="copyright">
+                &copy; 2025 PTI Movement. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
