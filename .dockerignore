@@ -1,0 +1,22 @@
+# ===========================================
+# EZDEPLOY - Optimized .dockerignore
+# ===========================================
+*.pyc
+*.pyo
+__pycache__/
+.pytest_cache/
+.git/
+.gitignore
+.env
+*.ipynb
+.ipynb_checkpoints/
+test*/
+data/
+notebooks/
+docs/
+*.md
+.vscode/
+.idea/
+Dockerfile*
+docker-compose*.yml
+.dockerignore
