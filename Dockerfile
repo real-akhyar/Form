@@ -9,29 +9,18 @@ FROM python:3.10-slim as build
 
 WORKDIR /app
 
-# Environment setup
-ENV PYTHONUNBUFFERED=1
-ENV PYTHONDONTWRITEBYTECODE=1
-
-# Install build dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    libopenblas-dev \
-    gfortran \
-    && rm -rf /var/lib/apt/lists/*
-
 # Copy requirements first for Docker layer caching
 COPY requirements.txt .
 
 # Install Python dependencies
-RUN pip install --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Stage 2: Runtime
 FROM python:3.10-slim
 
 # Environment setup - Cloud-Native Configuration
 ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
 ENV PORT=8000
 ENV WORKERS=4
 ENV TIMEOUT=120
