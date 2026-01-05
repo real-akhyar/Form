@@ -35,7 +35,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy installed packages from the build stage
+# Copy installed packages from build stage
 COPY --from=build /usr/local/lib/python3.10/site-packages /usr/local/lib/python3.10/site-packages
 COPY --from=build /usr/local/bin /usr/local/bin
 
