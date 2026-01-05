@@ -3,6 +3,9 @@ FROM python:3.10-slim as build
 
 WORKDIR /app
 
+# Environment setup
+ENV PYTHONUNBUFFERED=1
+
 # Copy requirements first for Docker layer caching
 COPY requirements.txt .
 
@@ -16,7 +19,7 @@ FROM python:3.10-slim
 # Environment setup - Cloud-Native Configuration
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONDONTWRITEBYTECODE=1
-ENV PORT=8000
+ENV PORT=7860
 ENV WORKERS=4
 ENV TIMEOUT=120
 
@@ -54,4 +57,4 @@ STOPSIGNAL SIGTERM
 
 # Run with gunicorn + uvicorn workers for production (default)
 # Uses ENV variables for cloud platform configurability
-CMD ["sh", "-c", "gunicorn main:app -w $(nproc) -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:${PORT} --timeout ${TIMEOUT} --graceful-timeout 30"]
+CMD ["sh", "-c", "gunicorn main:app -w ${WORKERS} -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:${PORT} --timeout ${TIMEOUT} --graceful-timeout 30"]
