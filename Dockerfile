@@ -1,19 +1,12 @@
-# File: app/templates/Dockerfile.fastapi.jinja
-# -----------------------------------------------------------
-# EZDEPLOY - FastAPI Application Dockerfile (Production-Ready)
-# Optimized for FastAPI with optional ML support
-# -----------------------------------------------------------
-
 # Stage 1: Build
 FROM python:3.10-slim as build
 
 WORKDIR /app
 
-# Copy requirements first for Docker layer caching
+# Copy and install dependencies
 COPY requirements.txt .
-
-# Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt && \
+    pip install --no-cache-dir "uvicorn[standard]" gunicorn
 
 # Stage 2: Runtime
 FROM python:3.10-slim
@@ -25,15 +18,14 @@ ENV PORT=8000
 ENV WORKERS=4
 ENV TIMEOUT=120
 
+# Install runtime system libs
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl && rm -rf /var/lib/apt/lists/*
+
 # Create non-root user for security
 RUN groupadd -r appuser && useradd -r -g appuser appuser
 
 WORKDIR /app
-
-# Install runtime system dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    curl \
-    && rm -rf /var/lib/apt/lists/*
 
 # Copy installed packages from build stage
 COPY --from=build /usr/local/lib/python3.10/site-packages /usr/local/lib/python3.10/site-packages
