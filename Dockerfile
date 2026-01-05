@@ -1,10 +1,7 @@
-# Stage 1: Build
+# Stage 1: Build 
 FROM python:3.10-slim as build
 
 WORKDIR /app
-
-# Environment setup
-ENV PYTHONUNBUFFERED=1
 
 # Copy requirements first for Docker layer caching
 COPY requirements.txt .
