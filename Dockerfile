@@ -3,8 +3,13 @@ FROM python:3.10-slim as build
 
 WORKDIR /app
 
-# Copy and install dependencies
+# Environment setup
+ENV PYTHONUNBUFFERED=1
+
+# Copy requirements first for Docker layer caching
 COPY requirements.txt .
+
+# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt && \
     pip install --no-cache-dir "uvicorn[standard]" gunicorn
 
@@ -18,16 +23,16 @@ ENV PORT=8000
 ENV WORKERS=4
 ENV TIMEOUT=120
 
-# Install runtime system libs
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    curl && rm -rf /var/lib/apt/lists/*
-
 # Create non-root user for security
 RUN groupadd -r appuser && useradd -r -g appuser appuser
 
 WORKDIR /app
 
-# Copy installed packages from build stage
+# Install runtime system libs
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl && rm -rf /var/lib/apt/lists/*
+
+# COPY installed packages (NOT requirements.txt!)
 COPY --from=build /usr/local/lib/python3.10/site-packages /usr/local/lib/python3.10/site-packages
 COPY --from=build /usr/local/bin /usr/local/bin
 
@@ -50,6 +55,6 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
 # Graceful shutdown signal
 STOPSIGNAL SIGTERM
 
-# Run with gunicorn + uvicorn workers for production
+# Run with gunicorn + uvicorn workers for production (default) or uvicorn if detected
 # Uses ENV variables for cloud platform configurability
 CMD ["sh", "-c", "gunicorn main:app -w $(nproc) -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:${PORT} --timeout ${TIMEOUT} --graceful-timeout 30"]
